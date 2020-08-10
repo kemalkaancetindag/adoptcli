@@ -1,10 +1,18 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import Navbar from "./components/Navbar";
+import Register from "./components/Register";
+import "./App.css";
+import { Grid } from "@material-ui/core";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <Navbar />
+      <Grid container justify="center">
+        <Grid item>
+          <Register />
+        </Grid>
+      </Grid>
     </div>
   );
 }
