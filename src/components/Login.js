@@ -10,7 +10,7 @@ import {
 
 const styles = {
   textfield: {
-    marginTop: 20,
+    marginTop: 40,
     width: "100%",
     borderColor: "#5D9C47",
   },
@@ -25,30 +25,15 @@ const styles = {
   },
 };
 
-class Register extends Component {
+class Login extends Component {
   render() {
     const { classes } = this.props;
     return (
       <Fragment>
         <Typography variant="h2" className={classes.headerText}>
-          Register
+          Login
         </Typography>
         <FormGroup>
-          <TextField
-            label="Name"
-            className={classes.textfield}
-            variant="outlined"
-          />
-          <TextField
-            label="Surname"
-            className={classes.textfield}
-            variant="outlined"
-          />
-          <TextField
-            label="Username"
-            className={classes.textfield}
-            variant="outlined"
-          />
           <TextField
             label="Email"
             className={classes.textfield}
@@ -58,17 +43,14 @@ class Register extends Component {
             label="Password"
             className={classes.textfield}
             variant="outlined"
+            type = "password"
           />
-          <TextField
-            label="Password Confirm"
-            className={classes.textfield}
-            variant="outlined"
-          />
-          <Button className={classes.button}>Register</Button>
+
+          <Button className={classes.button}>Login</Button>
         </FormGroup>
       </Fragment>
     );
   }
 }
 
-export default withStyles(styles)(Register);
+export default withStyles(styles)(Login);
