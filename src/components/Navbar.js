@@ -28,10 +28,10 @@ class Navbar extends Component {
       <div>
         <AppBar position="static" color="light" className={classes.appbar}>
           <Toolbar>
-            <Link underline="none">
+            <Link underline="none" href = "/donation">
               <Button className={classes.button}>Donate</Button>
             </Link>
-            <Link underline="none">
+            <Link underline="none" href = "/feed">
               <Button className={classes.button}>Feed</Button>
             </Link>
             <Link href="/" underline="none">
