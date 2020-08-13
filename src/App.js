@@ -7,6 +7,9 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Main from "./components/Main";
 import Feed from "./components/Feed";
+import Cats from "./components/Cats";
+import Dogs from "./components/Dogs";
+
 
 import "./App.css";
 
@@ -18,7 +21,8 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Navbar />
-
+        <Route exact path="/cats" component={Cats} />
+        <Route exact path="/dogs" component={Dogs} />
         <Route exact path="/feed" component={Feed} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
