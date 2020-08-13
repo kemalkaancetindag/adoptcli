@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Redirect } from "react-router-dom";
 import {
   TextField,
   Grid,
@@ -7,6 +8,8 @@ import {
   withStyles,
   Typography,
 } from "@material-ui/core";
+
+import axios from "axios";
 
 const styles = {
   textfield: {
@@ -26,28 +29,84 @@ const styles = {
 };
 
 class Login extends Component {
+  state = {
+    email: "",
+    password: "",
+  };
+
+  emailOnChange = (e) => {
+    this.setState({ email: e.target.value });
+  };
+
+  passwordOnChange = (e) => {
+    this.setState({ password: e.target.value });
+  };
+
+  submitForm = (e) => {
+    e.preventDefault();
+    const loginInfo = {
+      email: this.state.email,
+      password: this.state.password,
+    };
+    axios
+      .post(
+        "http://localhost:5000/adopt-f1505/europe-west3/api/login",
+        loginInfo
+      )
+      .then((res) => {
+        const FBIdToken = `Bearer ${res.data.token}`;
+        localStorage.setItem("AuthToken", FBIdToken);
+        const token = window.localStorage.getItem("AuthToken");
+
+        axios.defaults.headers.common["Authorization"] = token;
+
+        window.history.pushState("", "", "/");
+        window.location.reload();
+      });
+  };
+
   render() {
     const { classes } = this.props;
+
     return (
       <Fragment>
-        <Typography variant="h2" className={classes.headerText}>
-          Login
-        </Typography>
-        <FormGroup>
-          <TextField
-            label="Email"
-            className={classes.textfield}
-            variant="outlined"
-          />
-          <TextField
-            label="Password"
-            className={classes.textfield}
-            variant="outlined"
-            type = "password"
-          />
+        <Grid container>
+          <Grid item xs={4}></Grid>
+          <Grid item xs={4}>
+            <Typography variant="h2" className={classes.headerText}>
+              Login
+            </Typography>
+            <form onSubmit={this.submitForm}>
+              <TextField
+                label="Email"
+                className={classes.textfield}
+                variant="outlined"
+                value={this.state.email}
+                onChange={this.emailOnChange}
+              />
+              <TextField
+                label="Password"
+                className={classes.textfield}
+                variant="outlined"
+                type="password"
+                value={this.state.password}
+                onChange={this.passwordOnChange}
+              ></TextField>
 
-          <Button className={classes.button}>Login</Button>
-        </FormGroup>
+              <Button className={classes.button} type="submit">
+                Login
+              </Button>
+              <br></br>
+              <span>
+                <Typography>
+                  You dont have an account? lets{" "}
+                  <a href="/register">register</a> and make a difference.
+                </Typography>
+              </span>
+            </form>
+          </Grid>
+        </Grid>
+        <Grid item xs={4}></Grid>
       </Fragment>
     );
   }
