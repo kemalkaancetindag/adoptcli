@@ -38,11 +38,9 @@ class Navbar extends Component {
     age: "",
     weight: "",
     sex: "",
-    login: null
+    login: null,
   };
 
-  
-  
   modalHandler = () => {
     this.setState({ open: !this.state.open });
   };
@@ -99,9 +97,22 @@ class Navbar extends Component {
             <Link href="/register" underline="none">
               <Button className={classes.button}>Register</Button>
             </Link>
-            <IconButton className={classes.button} onClick={this.modalHandler}>
-              <AddIcon />
-            </IconButton>
+            {window.location.pathname === "/cats" ? (
+              <IconButton
+                className={classes.button}
+                onClick={this.modalHandler}
+              >
+                <AddIcon />
+              </IconButton>
+            ) : null}
+            {window.location.pathname === "/dogs" ? (
+              <IconButton
+                className={classes.button}
+                onClick={this.modalHandler}
+              >
+                <AddIcon />
+              </IconButton>
+            ) : null}
           </Toolbar>
         </AppBar>
         <Dialog open={this.state.open}>

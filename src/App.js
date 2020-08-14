@@ -13,10 +13,11 @@ import Dogs from "./components/Dogs";
 
 import "./App.css";
 
-import { Grid } from "@material-ui/core";
 import Donation from "./components/Donation";
 
 function App() {
+  console.log(window.location.href === "https://localhost:3000/dogs" ? true : false)
+  console.log(window.location.pathname === "/registe")
   return (
     <BrowserRouter>
       <div className="App">

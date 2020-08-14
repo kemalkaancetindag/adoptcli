@@ -1,26 +1,20 @@
 import React, { Component, Fragment } from "react";
 import {
-  Card,
-  CardContent,
-  CardMedia,
   Typography,
   withStyles,
-  Button,
-  Box,
   Grid,
   Paper,
+  Link,
 } from "@material-ui/core";
 
-
-
 const styles = {
-  cardHeader:{
+  cardHeader: {
     color: "#5D9C47",
   },
-  cardText : {
-    color : "textSecondary",
-    marginTop:20
-  }
+  cardText: {
+    color: "textSecondary",
+    marginTop: 20,
+  },
 };
 
 class Main extends Component {
@@ -28,36 +22,42 @@ class Main extends Component {
     const { classes } = this.props;
     return (
       <Fragment>
-       <Grid container align = "center">
-       
-         <Grid item md = {6} style={{marginTop:20}}>
+        <Grid container align="center">
+          <Grid item md={6} style={{ marginTop: 20 }}>
             <Paper>
-              <img src = "http://via.placeholder.com/1000x600"/>
-              <Typography variant = "h3" className = {classes.cardHeader}>Dog</Typography>
-              <Typography variant = "body1" className = {classes.cardText} color = "textSecondary">
-              This UI guidance includes a flexible grid that ensures consistency across layouts. ... values and don't need to be equal within the Material Design grid system.
-              This UI guidance includes a flexible grid that ensures consistency across layouts. ... values and don't need to be equal within the Material Design grid system.
-              This UI guidance includes a flexible grid that ensures consistency across layouts. ... values and don't need to be equal within the Material Design grid system.
-
+              <img src="http://via.placeholder.com/1000x600" />
+              <Link href="/dogs" underline = "none">
+                <Typography variant="h3" className={classes.cardHeader}>
+                  Dog
+                </Typography>
+              </Link>
+              <Typography
+                variant="body1"
+                className={classes.cardText}
+                color="textSecondary"
+              >
+                
               </Typography>
-
             </Paper>
-         </Grid>
-         <Grid item md = {6} style={{marginTop:20}}>
+          </Grid>
+          <Grid item md={6} style={{ marginTop: 20 }}>
             <Paper>
-             <img src = "http://via.placeholder.com/1000x600"/>
-             <Typography variant = "h3" className = {classes.cardHeader}>Cat</Typography>
-             <Typography variant = "body1" className = {classes.cardText} color = "textSecondary">
-             This UI guidance includes a flexible grid that ensures consistency across layouts. ... values and don't need to be equal within the Material Design grid system.
-             This UI guidance includes a flexible grid that ensures consistency across layouts. ... values and don't need to be equal within the Material Design grid system.
-             This UI guidance includes a flexible grid that ensures consistency across layouts. ... values and don't need to be equal within the Material Design grid system.
-
-             </Typography>
+              <img src="http://via.placeholder.com/1000x600" />
+              <Link href = "/cats" underline = "none">
+              <Typography variant="h3" className={classes.cardHeader}>
+                Cat
+              </Typography>
+              </Link>
+              <Typography
+                variant="body1"
+                className={classes.cardText}
+                color="textSecondary"
+              >
+               
+              </Typography>
             </Paper>
-         </Grid>
-         
-
-       </Grid>
+          </Grid>
+        </Grid>
       </Fragment>
     );
   }
