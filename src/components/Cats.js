@@ -49,7 +49,7 @@ class Cats extends Component {
     e.preventDefault()
     axios
       .post(
-        `http://localhost:5000/adopt-f1505/europe-west3/api/updatepet/${petId}`
+        `https://europe-west3-adopt-f1505.cloudfunctions.net/api/updatepet/${petId}`
       ).then(() => {
         alert("Pet updated successfully!");
         window.location.reload();
@@ -60,7 +60,7 @@ class Cats extends Component {
   deletePet = (petId) => {
     axios
       .delete(
-        `http://localhost:5000/adopt-f1505/europe-west3/api/deletepet/${petId}`
+        `https://europe-west3-adopt-f1505.cloudfunctions.net/api/deletepet/${petId}`
       )
       .then(() => {
         alert("Pet deleted successfully!");
@@ -70,7 +70,7 @@ class Cats extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/adopt-f1505/europe-west3/api/cats")
+      .get("https://europe-west3-adopt-f1505.cloudfunctions.net/api/cats")
       .then((res) => {
         this.setState({ cats: res.data, login: true });
       })

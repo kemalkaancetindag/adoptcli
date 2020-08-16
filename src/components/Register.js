@@ -59,7 +59,7 @@ class Register extends Component {
     };
     axios
       .post(
-        "http://localhost:5000/adopt-f1505/europe-west3/api/register",
+        "https://europe-west3-adopt-f1505.cloudfunctions.net/api/register",
         registerInfo
       )
       .then((res) => {

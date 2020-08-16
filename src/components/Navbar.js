@@ -58,7 +58,7 @@ class Navbar extends Component {
 
     axios
       .post(
-        "http://localhost:5000/adopt-f1505/europe-west3/api/addpet",
+        "https://europe-west3-adopt-f1505.cloudfunctions.net/api/addpet",
         petInfo
       )
       .then((res) => {

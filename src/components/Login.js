@@ -50,7 +50,7 @@ class Login extends Component {
     };
     axios
       .post(
-        "http://localhost:5000/adopt-f1505/europe-west3/api/login",
+        "https://europe-west3-adopt-f1505.cloudfunctions.net/api/login",
         loginInfo
       )
       .then((res) => {
