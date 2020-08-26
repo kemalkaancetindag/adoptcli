@@ -60,8 +60,7 @@ class Login extends Component {
 
         axios.defaults.headers.common["Authorization"] = token;
 
-        window.history.pushState("", "", "/");
-        window.location.reload();
+        this.props.history.push("/");
       });
   };
 

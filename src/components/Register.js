@@ -66,8 +66,7 @@ class Register extends Component {
         const FBIdToken = `Bearer ${res.data.token}`;
         localStorage.setItem("AuthToken", FBIdToken);
         axios.defaults.headers.common["Authorization"] = FBIdToken;
-        window.history.pushState("", "", "/");
-        window.location.reload();
+        this.props.history.push("/");
       });
   };
   render() {
